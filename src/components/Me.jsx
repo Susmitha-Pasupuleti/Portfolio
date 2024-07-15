@@ -17,7 +17,7 @@ const Me = () => {
         borderRadius: '10px',
     }  
   return (
-    <div className="border-b border-neutral-900 pb-4 lg:mb-35">
+    <div id="Me" className="border-b border-neutral-900 pb-4 lg:mb-20 mt-24 px-4 sm:px-6 lg:px-8 ">
         <div className="flex flex-wrap">
             <div className="w-full lg:w-1/2">
                 <div className="flex flex-col items-center lg:items-start">
@@ -25,7 +25,7 @@ const Me = () => {
                     variants={container(0)}
                     initial="hidden"
                     animate="visible"
-                     className="pb-16 text-5xl font-thin tracking-tight lg:mt-16 lg:text-6xl">Susmitha Pasupuleti </motion.h1>
+                     className="pb-10 text-5xl font-thin tracking-tight mt-16 lg:text-6xl">Susmitha Pasupuleti </motion.h1>
                     <motion.span variants={container(0.5)}
                     initial="hidden"
                     animate="visible" className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent">Full Stack Developer</motion.span>
