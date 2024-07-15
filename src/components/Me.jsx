@@ -1,48 +1,51 @@
-import logo from "../assets/S.png"; 
-import {FaLinkedin} from "react-icons/fa"
-import {FaGithub} from "react-icons/fa"
+import {ME_CONTENT} from '../constants';
+import MyPhoto from '../assets/MyPhoto.png'
+import {motion} from 'framer-motion'
 
 
 
-const Navbar = () => {
- const scrollToSection = (sectionId) => {
-    var section = document.getElementById(sectionId);
-    if (section) {
-      const navbarHeight = document.querySelector('nav').offsetHeight; 
-      const sectionPosition = section.getBoundingClientRect().top + window.scrollY - navbarHeight - 20; 
-      window.scrollTo({
-        top: sectionPosition,
-        behavior: 'smooth'
-    } )
-    }
-    else {
-        console.warn(`Section with id '${sectionId}' not found.`);
-      }
-    };
+const container=(delay)=>({
+    hidden: { x: -100, opacity: 0 },
+    visible :{
+        x:0,
+        opacity:1,
+        transition:{duration:0.5, delay:delay}
+    },
+})
+const Me = () => {
+    const imageStyle = {
+        borderRadius: '10px',
+    }  
   return (
-    <nav className="lg:mb-10 sm:mb-40 flex  items-center justify-between fixed top-0 left-0 right-0 bg-gray-900 py-1 z-50">
-      
-    <div className='flex flex-shrink-0 items-center'>
-        <img className="mx-2 w-20" src={logo} alt="logo" ></img>
+    <div id="Me" className="border-b border-neutral-900 pb-4 lg:mb-20 mt-24 px-4 sm:px-6 lg:px-8 ">
+        <div className="flex flex-wrap">
+            <div className="w-full lg:w-1/2">
+                <div className="flex flex-col items-center lg:items-start">
+                    <motion.h1 
+                    variants={container(0)}
+                    initial="hidden"
+                    animate="visible"
+                     className="pb-10 text-5xl font-thin tracking-tight mt-16 lg:text-6xl">Susmitha Pasupuleti </motion.h1>
+                    <motion.span variants={container(0.5)}
+                    initial="hidden"
+                    animate="visible" className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent">Full Stack Developer</motion.span>
+                    <motion.p variants={container(1)}
+                    initial="hidden"
+                    animate="visible" className="my-2 max-w-xl py-6 font-light tracking-tighter text-justify">{ ME_CONTENT }</motion.p>
+                </div>
+            </div>
+        <div className="w-full lg:w-1/2 lg:p-10 ">
+        <div className="flex justify-center ">
+            <motion.img 
+            initial={{x:100,opacity:0}}
+            animate={{x:0,opacity:1}}
+            transition={{duration:1,delay:1.2}}
+            src={MyPhoto} alt="My Photo" style={imageStyle}/>
+        </div>
+        </div>
+        </div>
     </div>
-    <div className=" lg:flex items-center justify-center w-full max-w-6xl sm:flex-wrap">
-      <button className="hover:text-gray-400 hover:underline mx-6"  onClick={()=>scrollToSection('Me')}>Home</button>
-      <button className="hover:text-gray-400 hover:underline mx-6"  onClick={()=>scrollToSection('About')}>About</button>
-      <button className="hover:text-gray-400 hover:underline mx-6"  onClick={()=>scrollToSection('Technologies')}>Technologies</button>
-      <button className="hover:text-gray-400 hover:underline mx-6"  onClick={()=>scrollToSection('Experience')}>Experience</button>
-      <button className="hover:text-gray-400 hover:underline mx-6"  onClick={()=>scrollToSection('Projects')}>Projects</button>
-      <button className="hover:text-gray-400 hover:underline mx-6"  onClick={()=>scrollToSection('Contact')}>Contact</button>
-    </div>
-    <div className='m-8 flex items-center  justify-center gap-4 text-2xl'>
-      <a href="https://github.com/Susmitha-Pasupuleti" target="_blank" rel="noopener noreferrer">
-        <FaGithub />
-      </a>
-      <a href="https://www.linkedin.com/in/susmithapasupuleti/" target="_blank" rel="noopener noreferrer">
-        <FaLinkedin/>
-      </a>
-        
-    </div>
-    </nav>
   )
 }
-export default Navbar
+
+export default Me
