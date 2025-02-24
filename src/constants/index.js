@@ -9,7 +9,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile software developer wit
 
 export const EXPERIENCES = [
   {
-    year: "Sep 2023 - April 2024",
+    year: "Sep 2023 - Present",
     role: "Software Development Engineer Intern",
     company: "Skillo Inc.",
     description: `Utilized HTML, CSS, JavaScript, Node.js, and Express.js to develop robust user authentication and RESTful APIs, ensuring cross-browser compatibility and efficient communication. By enhancing SQL database queries, I significantly improved performance and reduced response times, and implemented secure user authentication using JWT tokens. Collaborating with cross-functional teams, I translated project requirements into technical specifications, leading to successful and timely project delivery.`,
